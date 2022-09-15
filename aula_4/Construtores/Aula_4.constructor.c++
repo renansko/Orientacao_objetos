@@ -1,6 +1,6 @@
 #include <iostream>
 
-using   namespace std;
+using namespace std;
 
 class  Construtor{
 public:
@@ -15,7 +15,8 @@ public:
 
 int main(){
     Construtor  c;
-
-
+    cout << "x = " << c.x << endl;
+    cout << "y = " << c.y << endl;
+    
     return 0;
 }
