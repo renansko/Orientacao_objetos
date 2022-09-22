@@ -50,14 +50,15 @@ public:
     string nome;
     string cpf;
     string endereco;
-    Animal pet;
+    Animal pet[10];
 
     void informacoes_cliente(Endereco e){
         cout << "Nome: " << nome << endl;
         cout << "CPF: " << cpf << endl;
-        cout << "Nome do pet: " << pet.nome << endl;
-        cout << "Especie: " << pet.especie << endl;
-        cout << "Idade: " << pet.idade << endl;
+        cout << "Nome do pet: " << pet[0].nome << endl;
+        cout << "Especie: " << pet[0].especie << endl;
+        cout << "Idade: " << pet[0].idade << endl;
+
         //endereço
         cout << "Rua: " << e.Rua << endl;
         cout << "Numero: " << e.numero << endl;
@@ -89,9 +90,9 @@ int main(){
     cliente1.cpf = "123.456.789-07";
 
 
-    cliente1.pet.nome = "Manuki";
-    cliente1.pet.especie = "Cachorro";
-    cliente1.pet.idade = 8;
+    cliente1.pet[0].nome = "Manuki";
+    cliente1.pet[0].especie = "Cachorro";
+    cliente1.pet[0].idade = 8;
     cliente1.informacoes_cliente(endereco_1);
 
     return 0;
