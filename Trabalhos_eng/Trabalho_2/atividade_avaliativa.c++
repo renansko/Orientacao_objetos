@@ -36,7 +36,7 @@ class Elevador{
         }
     }
     void Sai(){
-        if (pessoas >= 0){
+        if (pessoas <= 0){
             cout << "O elevador esta vazio!" << endl;
         }
         else{
@@ -62,7 +62,7 @@ class Elevador{
         }
         else{
             andar --;
-            cout << "Voce desceu um andar, atualmente se encontra no andar: " << andar <<;
+            cout << "Voce desceu um andar, atualmente se encontra no andar: " << andar << endl;
         }
     }
 };
@@ -76,8 +76,12 @@ int main(){
 
     
     hotel.Inicializa();
-    hotel.Sobe();
 
+    hotel.Entra();
+    hotel.Sai();
+
+    hotel.Sobe();
+    hotel.Desce();
 
 
     return 0;
