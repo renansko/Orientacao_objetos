@@ -1,4 +1,4 @@
-/* Altere o exercício 6 substituindo o atributo "Animal pet" por um vetor de "Animal pet". Após, modifique o código a fim de permitir a representação de um
+/* Altere o exercï¿½cio 6 substituindo o atributo "Animal pet" por um vetor de "Animal pet". Apï¿½s, modifique o cï¿½digo a fim de permitir a representaï¿½ï¿½o de um
    cliente que possui diversos pets.
 */
 
