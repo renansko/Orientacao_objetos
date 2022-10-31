@@ -18,17 +18,9 @@ public:
         nome(nome), telefone(telefone), email(email){
     }
     ~Pessoas(){};
-    void descreveAluno(){
-         
-        cout << " Aluno : " << nome << endl;
-        cout << " Telefone: " << telefone << endl;
-        cout << " Email: " << email << endl;
-        cout << "------------------- " << endl;
-    }
-
-    void descreveProfessor(){
-       
-        cout << " Professor : " << nome << endl;
+    void descrevePessoas(){
+        cout << "informacoes pessoais: " << endl;
+        cout << " nome : " << nome << endl;
         cout << " Telefone: " << telefone << endl;
         cout << " Email: " << email << endl;
         cout << "------------------- " << endl;
@@ -65,15 +57,19 @@ public:
 
 
     Disciplina(){};
-    Disciplina(string nome,Pessoas professor, string aluno);
+    Disciplina(string nome,Pessoas professor, vector<Pessoas> aluno, vector<Recurso> recursos ):
+        nome(nome), professor(professor), aluno(aluno), recursos(recursos){
+    }
     ~Disciplina(){};
     void descreveDisciplina(){
         cout << "Voce esta na disciplina: " << nome << endl;
         cout << "------------------- " << endl;
-        professor.descreveProfessor();
+        cout << "-Professor vigente- " << endl;
+        professor.descrevePessoas();
+        cout << "-Professor vigente- " << endl;
         for(int i = 0; i < aluno.size(); i++){
             cout << "aluno numero: " << i+1  << endl;
-            aluno[i].descreveAluno();
+            aluno[i].descrevePessoas();
         }
         for(int i = 0; i < recursos.size(); i++){
             recursos[i].descreveRecurso();
@@ -85,20 +81,23 @@ public:
 
 int main(){
 
-    Pessoas jorge;
-    jorge.nome = "jorge";
-    jorge.telefone = "(41) 99908-5464";
-    jorge.email = "jorgealaba@gmail.com";
+    Pessoas jorge("jorge","(41) 99908-5464", "jorgealaba@gmail.com");
+    Pessoas alberto("Alberto","(41) 97548-5464", "Alberto@gmail.com");
+    Pessoas renan("Renan","(41) 99908-7788", "Renan@gmail.com");
 
 
-    Disciplina arquitetura;
-    arquitetura.nome = "arquitetura";
-    arquitetura.professor = jorge;
-    arquitetura.aluno.push_back(Pessoas("Alberto", "(41) 97548-5464", "Albertoalaba@gmail.com"));
-    arquitetura.aluno.push_back(Pessoas("Alberto", "(41) 97548-5464", "Albertoalaba@gmail.com"));
-    arquitetura.recursos.push_back(Recurso("Livro", 1));
-    arquitetura.recursos.push_back(Recurso("Computador", 0));
+    Recurso livro("livro", 1);
+    Recurso computador("Computador", 0);
 
+    vector<Pessoas> alunos;
+    vector<Recurso> recursos;
+
+    alunos.push_back(alberto);
+    alunos.push_back(renan);
+    recursos.push_back(computador);
+    recursos.push_back(livro);
+
+    Disciplina arquitetura("arquitetura", jorge, alunos, recursos);
     arquitetura.descreveDisciplina();
     return 0;
 }
