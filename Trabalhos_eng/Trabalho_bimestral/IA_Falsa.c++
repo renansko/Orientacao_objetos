@@ -10,17 +10,16 @@ class Jogador{
    
 
     public:
-    int placar;
+    int placar, row, col, check;
     Jogador(){}
-    Jogador(int placar):
-        placar(placar){
+    Jogador(int placar, int row,int col,int check):
+        placar(placar), row(row), col(col), check(check){
         }
         
     ~Jogador(){};
     
     void PlayerMove(int board[][3])
     {
-        int row, col, check;
         do{
             cout<<"Linha: ";
             cin >>row;
@@ -45,17 +44,17 @@ class Computador{
     private:
 
     public:
-    int placar;
-    int dificuldade;
+    int placar, dificuldade, row, col, check, acc_row = 0, acc_col = 0;
     Computador(){}
-    Computador(int placar, int dificuldade):
+    Computador(int placar, int dificuldade, int row,int col,int check,int acc_row,int acc_col):
         placar(placar), dificuldade(dificuldade){
+            acc_row = 0;
+            acc_col = 0;
         }
     ~Computador(){};
 
     void ComputerMove(int board[][3])
     {
-        int row, col, check, acc_row = 0, acc_col = 0;
         srand(time(0));
         if(dificuldade == 1){
             do{
@@ -161,6 +160,7 @@ class Tabuleiro{
     }
 
     int checkContinue()
+    //Verifica se continua o jogo
     {
         for(int i=0 ; i<3 ; i++)
             for(int j=0 ; j<3 ; j++)
@@ -171,6 +171,7 @@ class Tabuleiro{
 
     int checkWin()
     {
+        // Verifica se e se alguem ganhou
         int row, col, sum;
 
         // Adicionando linhas
@@ -251,6 +252,7 @@ class Tabuleiro{
     }
     
     Tabela(Jogador *jogador, Computador *computador){
+        // Mostra a pontuacao do player e computador
             if(win == 1)
                 jogador->placar = jogador->placar + 1;
             if(win == 2)
