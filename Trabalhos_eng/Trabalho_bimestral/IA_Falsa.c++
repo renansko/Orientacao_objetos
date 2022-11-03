@@ -7,10 +7,10 @@ using namespace std;
 
 class Jogador{
     private:
-   
+    int row, col, check;
 
     public:
-    int placar, row, col, check;
+    int placar;
     Jogador(){}
     Jogador(int placar, int row,int col,int check):
         placar(placar), row(row), col(col), check(check){
@@ -42,9 +42,10 @@ class Jogador{
 
 class Computador{
     private:
+    int  row, col, check, acc_row = 0, acc_col = 0;
 
     public:
-    int placar, dificuldade, row, col, check, acc_row = 0, acc_col = 0;
+    int placar, dificuldade;
     Computador(){}
     Computador(int placar, int dificuldade, int row,int col,int check,int acc_row,int acc_col):
         placar(placar), dificuldade(dificuldade){
@@ -111,10 +112,12 @@ class Computador{
 
 class Tabuleiro{
     private:
+    int block ,turn, cont, row, col, sum;
 
     public:
     int board[3][3];
-    int win, block ,turn, cont;
+    int win;
+
     Jogador *jogador;
     Computador *computador;
     Tabuleiro(){};
@@ -172,7 +175,6 @@ class Tabuleiro{
     int checkWin()
     {
         // Verifica se e se alguem ganhou
-        int row, col, sum;
 
         // Adicionando linhas
         for(row=0 ; row<3 ; row++){
